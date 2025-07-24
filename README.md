@@ -449,18 +449,23 @@ jobs:
         run: |
           echo "Starting cleanup at $(date)"
           rm -rf node_modules/.cache 2>/dev/null || echo "No node_modules cache to clean"
-          rm -rf /tmp/runner_temp/* 2>/dev/null || echo "No temp files to clean"
+          re -rf /tmp/runner_temp/* 2>/dev/null || echo "No temp files to clean"
           echo "Final memory status:"
           free -h
           echo "Cleanup completed at $(date)"
 ```
+
+<!--
+If the image below does not render, make sure you have added the file `assets/github2.png` to your repository.
+-->
+
+![GitHub Actions Workflow Screenshot](assets/github2.png)
 
 ## Environment Variables
 
 ### 1. GitHub Repository Secrets
 
 Go to your repository → Settings → Secrets and variables → Actions
-
 
 Add these secrets:
 
@@ -480,9 +485,9 @@ Add these secrets:
 | `REACT_APP_FLUTTERWAVE_PUBLIC_KEY`      | Flutterwave public key       | `FLWPUBK_TEST-...`                       |
 | `REACT_APP_SUPER_ADMIN_EMAIL`           | Super admin email            | `admin@yourdomain.com`                   |
 
-Here is how your secrets should look like 
+Here is how your secrets should look like
 
-![GitHub Actions Secrets Settings] 
+![GitHub Actions Secrets Settings]
 
 <img width="1611" height="915" alt="github1" src="https://github.com/user-attachments/assets/23bc8bca-5314-4f72-ab73-78d286490485" />
 
