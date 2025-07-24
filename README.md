@@ -461,14 +461,6 @@ jobs:
 
 Go to your repository → Settings → Secrets and variables → Actions
 
-<!--
-If the image below does not render, make sure you have added the file `assets/github1.png` to your repository.
--->
-
-![GitHub Actions Secrets Settings] 
-
-<img width="1611" height="915" alt="github1" src="https://github.com/user-attachments/assets/23bc8bca-5314-4f72-ab73-78d286490485" />
-
 
 Add these secrets:
 
@@ -487,6 +479,12 @@ Add these secrets:
 | `REACT_APP_CONFIRMATION_EMAIL_REDIRECT` | Email redirect URL           | `https://yourdomain.com/confirm`         |
 | `REACT_APP_FLUTTERWAVE_PUBLIC_KEY`      | Flutterwave public key       | `FLWPUBK_TEST-...`                       |
 | `REACT_APP_SUPER_ADMIN_EMAIL`           | Super admin email            | `admin@yourdomain.com`                   |
+
+Here is how your secrets should look like 
+
+![GitHub Actions Secrets Settings] 
+
+<img width="1611" height="915" alt="github1" src="https://github.com/user-attachments/assets/23bc8bca-5314-4f72-ab73-78d286490485" />
 
 ### 2. Get Private Key Content
 
