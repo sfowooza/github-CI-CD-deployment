@@ -21,16 +21,63 @@ Complete guide for deploying a React/Vite application to a Linux server using Gi
 - Git installed on server and local machine
 - GitHub repository with your React/Vite app
 
+## Login to Server
+
+Standard SSH login method:
+
+```bash
+ssh -l root -p 22 xx.x.xx.xx
+# OR
+ssh root@xx.x.xx.xx -p 22
+```
+
 ## Server Setup
 
 ### 1. Update Server and Install Dependencies
 
 ```bash
 sudo apt update && sudo apt upgrade -y
-sudo apt install nodejs npm nginx git -y
+sudo apt install -y curl git nginx
 ```
 
-### 2. Verify Installations
+### 2. Install Node.js and npm using NVM
+
+It is recommended to use [nvm](https://github.com/nvm-sh/nvm) to manage Node.js versions.
+
+```bash
+# Install Node.js (system default, optional)
+sudo apt-get install -y nodejs
+
+# Install nvm (Node Version Manager)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+
+# Load nvm (you may need to restart your terminal or run the next line)
+source ~/.bashrc
+
+# List available Node.js versions
+nvm list-remote
+
+# Example output:
+#        v16.20.2
+#        v17.9.1
+#        v18.20.2
+#        v20.14.0
+#        v21.7.3
+#        v22.2.0
+
+# Install Node.js version 18 (recommended)
+nvm install 18
+
+# Use Node.js 18
+nvm use 18
+
+# Verify installations
+node -v
+npm -v
+nvm -v
+```
+
+### 3. Verify Installations
 
 ```bash
 node --version
@@ -428,9 +475,11 @@ Copy the entire output including the BEGIN and END lines.
 
 ### 1. Commit and Push Changes
 
+If you have already pushed this project to GitHub before, simply commit your changes and push again:
+
 ```bash
 git add .
-git commit -m "Add deployment configuration"
+git commit -m "Update deployment instructions"
 git push origin main
 ```
 
@@ -555,4 +604,5 @@ If you encounter issues:
 5. Ensure all secrets are properly configured
 
 Happy deploying! 🚀
+
 # github-CI-CD-deployment
