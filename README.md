@@ -465,7 +465,10 @@ Go to your repository → Settings → Secrets and variables → Actions
 If the image below does not render, make sure you have added the file `assets/github1.png` to your repository.
 -->
 
-![GitHub Actions Secrets Settings](assets/github1.png)
+![GitHub Actions Secrets Settings] 
+
+<img width="1611" height="915" alt="github1" src="https://github.com/user-attachments/assets/23bc8bca-5314-4f72-ab73-78d286490485" />
+
 
 Add these secrets:
 
