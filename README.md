@@ -489,9 +489,14 @@ Here is how your secrets should look like
 
 ![GitHub Actions Secrets Settings](assets/github1.png)
 
-### 2. Why you should hide your `.env` file
+### Why do we use GitHub Secrets and hide the `.env` file?
 
-For security, you should never commit your `.env` file to your repository. The `.env` file contains sensitive environment variables such as API keys and secrets. Instead, add `.env` to your `.gitignore` file so it is not tracked by git.
+For security, sensitive environment variables such as API keys and secrets should **never** be committed to your repository. Instead, you should:
+
+- Add your secrets as GitHub Actions secrets, so they are injected securely during deployment.
+- Add `.env` to your `.gitignore` file so it is not tracked by git.
+
+This prevents accidental exposure of credentials and keeps your application secure.
 
 Example `.env` file:
 
@@ -503,7 +508,7 @@ Add `.env` to your `.gitignore` file like this:
 
 This ensures your secrets are not exposed in your codebase and are only provided securely via GitHub Actions secrets during deployment.
 
-### 3. Get Private Key Content
+### Get Private Key Content
 
 ```bash
 cat ~/.ssh/github_actions_key
