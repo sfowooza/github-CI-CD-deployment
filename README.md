@@ -461,6 +461,10 @@ jobs:
 
 Go to your repository → Settings → Secrets and variables → Actions
 
+<!--
+If the image below does not render, make sure you have added the file `assets/github1.png` to your repository.
+-->
+
 ![GitHub Actions Secrets Settings](assets/github1.png)
 
 Add these secrets:
