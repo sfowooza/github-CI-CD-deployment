@@ -122,11 +122,27 @@ When prompted:
 ssh-copy-id -i ~/.ssh/github_actions_key.pub username@your-server-ip
 ```
 
-**Option B - Manual method:**
+**Option B - Manual method (one-liner):**
 
 ```bash
 cat ~/.ssh/github_actions_key.pub | ssh username@your-server-ip "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
 ```
+
+**Option C - Manual copy-paste:**
+
+1. On your local machine, display your public key:
+   ```bash
+   cat ~/.ssh/github_actions_key.pub
+   ```
+2. Copy the entire output.
+
+3. On your server, run:
+   ```bash
+   mkdir -p ~/.ssh
+   echo "paste-your-public-key-here" >> ~/.ssh/authorized_keys
+   chmod 700 ~/.ssh
+   chmod 600 ~/.ssh/authorized_keys
+   ```
 
 ### 3. Test SSH Connection
 
@@ -445,6 +461,8 @@ jobs:
 
 Go to your repository → Settings → Secrets and variables → Actions
 
+![GitHub Actions Secrets Settings](assets/github1.png)
+
 Add these secrets:
 
 | Secret Name                             | Description                  | Example                                  |
@@ -475,11 +493,9 @@ Copy the entire output including the BEGIN and END lines.
 
 ### 1. Commit and Push Changes
 
-If you have already pushed this project to GitHub before, simply commit your changes and push again:
-
 ```bash
 git add .
-git commit -m "Update deployment instructions"
+git commit -m "Add deployment configuration"
 git push origin main
 ```
 
