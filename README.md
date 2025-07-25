@@ -647,5 +647,3 @@ If you encounter issues:
 5. Ensure all secrets are properly configured
 
 Happy deploying! 🚀
-
-# github-CI-CD-deployment
