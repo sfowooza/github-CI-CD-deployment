@@ -89,16 +89,16 @@ git --version
 ### 3. Create Deployment Directory
 
 ```bash
-sudo mkdir -p /var/www/html/Admittance/_work/Enroll-App/Enroll-App
-sudo chown -R $USER:$USER /var/www/html/Admittance/
-sudo chmod -R 755 /var/www/html/Admittance/
+sudo mkdir -p /var/www/html/Admit/_work/MyApp/MyApp
+sudo chown -R $USER:$USER /var/www/html/Admit/
+sudo chmod -R 755 /var/www/html/Admit/
 ```
 
 ### 4. Clone Your Repository
 
 ```bash
-cd /var/www/html/Admittance/_work/Enroll-App/
-git clone https://github.com/yourusername/your-repo-name.git Enroll-App
+cd /var/www/html/Admit/_work/MyApp/
+git clone https://github.com/yourusername/your-repo-name.git MyApp
 ```
 
 ## SSH Key Configuration
@@ -186,7 +186,7 @@ server {
     server_name yourdomain.com www.yourdomain.com;
 
     # Document root for your React app build files
-    root /var/www/html/Admittance/_work/Enroll-App/Enroll-App/build;
+    root /var/www/html/Admit/_work/MyApp/MyApp/build;
     index index.html index.htm;
 
     # Security headers
@@ -389,12 +389,12 @@ jobs:
           script: |
             echo "Starting server deployment at $(date)"
 
-            if [ ! -d "/var/www/html/Admittance/_work/Enroll-App/Enroll-App" ]; then
+            if [ ! -d "/var/www/html/Admit/_work/MyApp/MyApp" ]; then
               echo "Creating deployment directory..."
-              mkdir -p /var/www/html/Admittance/_work/Enroll-App/Enroll-App
+              mkdir -p /var/www/html/Admit/_work/MyApp/MyApp
             fi
 
-            cd /var/www/html/Admittance/_work/Enroll-App/Enroll-App || exit 1
+            cd /var/www/html/Admit/_work/MyApp/MyApp || exit 1
 
             cat > .env << EOL
             REACT_APP_API_KEY=${REACT_APP_API_KEY}
@@ -536,7 +536,7 @@ git push origin main
 
 ```bash
 # Check if build folder exists
-ls -la /var/www/html/Admittance/_work/Enroll-App/Enroll-App/build/
+ls -la /var/www/html/Admit/_work/MyApp/MyApp/build/
 
 # Check nginx status
 sudo systemctl status nginx
@@ -580,8 +580,8 @@ npm --version
 
 ```bash
 # Fix directory permissions
-sudo chown -R $USER:$USER /var/www/html/Admittance/
-sudo chmod -R 755 /var/www/html/Admittance/
+sudo chown -R $USER:$USER /var/www/html/Admit/
+sudo chmod -R 755 /var/www/html/Admit/
 ```
 
 **4. Nginx 404 Error**
@@ -591,7 +591,7 @@ sudo chmod -R 755 /var/www/html/Admittance/
 sudo nginx -t
 
 # Check if build files exist
-ls -la /var/www/html/Admittance/_work/Enroll-App/Enroll-App/build/
+ls -la /var/www/html/Admit/_work/MyApp/MyApp/build/
 ```
 
 **5. Environment Variables Not Working**
@@ -612,7 +612,7 @@ sudo journalctl -u nginx -f
 sudo tail -f /var/log/nginx/error.log
 
 # Manual deployment test
-cd /var/www/html/Admittance/_work/Enroll-App/Enroll-App
+cd /var/www/html/Admit/_work/MyApp/MyApp
 git pull origin main
 npm install
 npm run build
