@@ -1,4 +1,4 @@
-# Enroll-App Deployment Guide
+# React App Deployment Guide
 
 Complete guide for deploying a React/Vite application to a Linux server using GitHub Actions CI/CD pipeline.
 
